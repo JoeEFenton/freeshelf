@@ -1,0 +1,23 @@
+
+%h1 Freeshelf Book Listing
+= link_to 'Add a new book to the freeshelf!', new_book_path, :class => "toplink"
+%br
+%table.table
+  %tr.headrow
+    %th.tabhead Title
+    %th.tabhead Author
+    %th.tabhead Description
+    %th.tabhead URL
+
+  - @books.each do |book|
+    %tr
+      %td= book.title
+      %td= book.author
+      %td= book.description
+      %td= book.url
+      %td= link_to 'Show this book', book_path(book)
+      %td= link_to 'Edit this book', edit_book_path(book)
+      %td= link_to 'Delete this book',
+      book_path(book),
+      method: :delete,
+      data: {confirm: 'Are you sure?'}
