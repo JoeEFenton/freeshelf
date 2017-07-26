@@ -17,7 +17,4 @@
       %td= book.url
       %td= link_to 'Show this book', book_path(book)
       %td= link_to 'Edit this book', edit_book_path(book)
-      %td= link_to 'Delete this book',
-      book_path(book),
-      method: :delete,
-      data: {confirm: 'Are you sure?'}
+      %td= link_to 'Delete this book', delete_path(book)
