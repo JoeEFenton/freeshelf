@@ -8,4 +8,10 @@ class ApplicationController < ActionController::Base
       def authorize
         redirect_to '/login' unless current_user
       end
+
+      def check_owner
+        book = Book.find(params[:id])
+        redirect_to '/' unless book.user_id == current_user.id
+      end
+
 end

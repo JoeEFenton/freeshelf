@@ -16,8 +16,9 @@
       %td= book.description
       %td= book.url
       %td= link_to 'Show this book', book_path(book)
-      %td= link_to 'Edit this book', edit_book_path(book)
-      %td= link_to 'Delete this book', delete_path(book)
+      - if book.user == current_user
+        %td= link_to 'Edit this book', edit_book_path(book)
+        %td= link_to 'Delete this book', delete_path(book)
 
 - if current_user
   Signed in as #{current_user.username} | #{link_to "Logout", '/logout'}
